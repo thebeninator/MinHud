@@ -39,9 +39,12 @@ namespace MinHud
 
             if (cd > 0) return;
 
-            bool in_3p = cam_manager._currentCamSlot == null
-                || cam_manager._currentCamSlot.GetInstanceID() == cam_manager._allFreeLookCamSlots[0].GetInstanceID()
-                || buf_camera.IsInFreeFlyMode;
+            bool in_3p = 
+                (
+                    cam_manager._currentCamSlot == null
+                    || cam_manager._currentCamSlot.GetInstanceID() == cam_manager._allFreeLookCamSlots[0].GetInstanceID()
+                )
+                && !buf_camera.IsInFreeFlyMode;
 
             if (!Mod.only_hide_compass.Value)
             {
